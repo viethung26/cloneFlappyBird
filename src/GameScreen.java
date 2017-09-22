@@ -25,7 +25,7 @@ public class GameScreen extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
-			Flappy.bird.setVelocity(-3);
+			Flappy.bird.fly();
 		}
 	}
 	@Override
