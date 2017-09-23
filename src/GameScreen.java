@@ -4,8 +4,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 public class GameScreen extends JFrame implements KeyListener{
 	public GameScreen() {
-		setSize(900,900);
-		setTitle("Flappy");
+		setSize(800,635);
+		setTitle("Flappy Bird");
 		setVisible(true);
 		addKeyListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,6 +16,7 @@ public class GameScreen extends JFrame implements KeyListener{
 		setTitle("Flappy");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 		
 	}
 	@Override
@@ -25,7 +26,19 @@ public class GameScreen extends JFrame implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
-			Flappy.bird.fly();
+			if(GameThread.currentScreen==GameThread.BEGIN_SCREEN) {
+				GameThread.currentScreen=GameThread.PLAY_SCREEN;
+			}
+			else if(GameThread.currentScreen==GameThread.PLAY_SCREEN) {
+				Flappy.bird.fly();
+			}
+			else {
+				Flappy.bird= new Bird();
+				Flappy.ground = new Ground();
+				Flappy.twinChimney= new TwinChimney();
+				GameThread.currentScreen=GameThread.PLAY_SCREEN;
+			}
+			
 		}
 	}
 	@Override
