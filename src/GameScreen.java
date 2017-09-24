@@ -6,6 +6,8 @@ public class GameScreen extends JFrame implements KeyListener{
 	public GameScreen() {
 		setSize(800,635);
 		setTitle("Flappy Bird");
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 		addKeyListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,7 +19,6 @@ public class GameScreen extends JFrame implements KeyListener{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {

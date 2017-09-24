@@ -9,7 +9,7 @@ public class Ground {
 	private int x1,x2,y1,y2;
 	public Ground() {
 		try {
-			img = ImageIO.read(new File("Assets/ground.png"));
+			img = ImageIO.read(getClass().getResource("/assets/ground.png"));
 		}catch(Exception e) {}
 		x1=0;
 		y1=y2=500;

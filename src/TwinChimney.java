@@ -13,16 +13,16 @@ public class TwinChimney {
 	QueueList<Chimney> twinChimney;
 	public TwinChimney() {
 		try {
-			image=ImageIO.read(new File("Assets/chimney.png"));
-			image2=ImageIO.read(new File("Assets/chimney2.png"));
+			image=ImageIO.read(getClass().getResource("/assets/chimney.png"));
+			image2=ImageIO.read(getClass().getResource("/assets/chimney2.png"));
 		}catch(Exception e) {}	
 		twinChimney = new QueueList<Chimney>();
 		for(int i=0;i<3;i++) {
 			Random random = new Random();
 			int ran = random.nextInt(10);
-			chimney = new Chimney(700+i*300,490-ran*35);
+			chimney = new Chimney(700+i*300,500-ran*30);
 			twinChimney.push(chimney);
-			chimney = new Chimney(700+i*300,-70-ran*35);
+			chimney = new Chimney(700+i*300,-60-ran*30);
 			twinChimney.push(chimney);
 		}
 	}
@@ -31,7 +31,8 @@ public class TwinChimney {
 	}
 	public void update() {
 		for(int i=0;i<6;i++) {
-			twinChimney.get(i).setPosX(twinChimney.get(i).getPosX()-2);
+			twinChimney.get(i).update();
+			if(i%2==0)	if(twinChimney.get(i).getPosX()-Flappy.bird.getPosX()==-74) Flappy.bird.updateScore();
 		}
 		if(twinChimney.get(0).getPosX()<-74) {
 			Random random = new Random();
