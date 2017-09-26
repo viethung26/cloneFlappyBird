@@ -69,12 +69,14 @@ public class Flappy {
 		return Flappy.bestScore;
 	}
 	public static boolean checkCrash() {
-		if(bird.getPosY()+bird.getHeight()>=ground.getHeight()) return true;
 		float bx=bird.getPosX();
 		float by=bird.getPosY();
+		if(by+bird.getHeight()>=ground.getHeight()) return true;//crash ground
+		if(by<=0) return true; // crash sky
+		
 		for(int i=0;i<6;i++) {
 			float x=twinChimney.getChimney(i).getPosX();
-			float y=twinChimney.getChimney(i).getPosY();
+			float y=twinChimney.getChimney(i).getPosY();	
 			if(i%2==0 && bx+55>x && bx<x+74 && by+55>y) return true; 
 			else if (i%2==1 && bx+55>x && bx<x+69 && by<y+395) return true;
 //			if(bird.getRect().intersects(twinChimney.getChimney(i).getRect())) System.out.println("debug"+i);

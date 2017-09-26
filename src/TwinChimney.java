@@ -20,9 +20,9 @@ public class TwinChimney {
 		for(int i=0;i<3;i++) {
 			Random random = new Random();
 			int ran = random.nextInt(10);
-			chimney = new Chimney(700+i*300,500-ran*30);
+			chimney = new Chimney(700+i*300,200+ran*30);
 			twinChimney.push(chimney);
-			chimney = new Chimney(700+i*300,-60-ran*30);
+			chimney = new Chimney(700+i*300,-370+ran*30);
 			twinChimney.push(chimney);
 		}
 	}
@@ -38,13 +38,12 @@ public class TwinChimney {
 			Random random = new Random();
 			int ran = random.nextInt(10);
 			twinChimney.pop();
-			chimney = new Chimney(twinChimney.get(4).getPosX()+300,100+ran*40);
+			chimney = new Chimney(twinChimney.get(4).getPosX()+300,200+ran*30);
 			twinChimney.push(chimney);
 			twinChimney.pop();
-			chimney = new Chimney(twinChimney.get(4).getPosX(),-455+ran*40);
+			chimney = new Chimney(twinChimney.get(4).getPosX(),-370+ran*30);
 			twinChimney.push(chimney);
 		}
-		
 	}
 	public void paint(Graphics2D g2) {
 		for(int i=0;i<6;i++) {

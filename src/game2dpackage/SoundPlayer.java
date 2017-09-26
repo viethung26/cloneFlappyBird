@@ -28,7 +28,7 @@ private Clip clip;
             AudioInputStream dais = AudioSystem.getAudioInputStream(decodeFormat, ais);
             clip = AudioSystem.getClip();
             clip.open(dais);
-        }catch(Exception e){}
+        }catch(Exception e){System.out.println(e.getMessage());}
     }
     public void play(){
         if(clip !=null){
